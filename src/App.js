@@ -1,12 +1,16 @@
 import './App.css';
 
 function App() {
-  return (
-    <div className="App">
-     <h1> E-commerce </h1>
-    
-    </div>
-  );
-}
+	return (
+		<nav className="App">
+		<ul>
+		<li>Inicio</li>
+		<li>Productos</li>
+		<li>Nosotros</li>
+		<li>Contacto</li>
+		</ul>
+		</nav>
+		);
+	}
 
-export default App;
+	export default App;
