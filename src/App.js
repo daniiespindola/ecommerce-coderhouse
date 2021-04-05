@@ -1,16 +1,18 @@
+import React from 'react';
 import './App.css';
+import NavBar from './components/Navbar';
+import ItemListContainer from './components/ItemListContainer';
 
 function App() {
-	return (
-		<nav className="App">
-		<ul>
-		<li>Inicio</li>
-		<li>Productos</li>
-		<li>Nosotros</li>
-		<li>Contacto</li>
-		</ul>
-		</nav>
-		);
-	}
+  return (
+    <>
+    <h1>Surf Stuff</h1>
+    <div className="App">
+      <NavBar />
+      <ItemListContainer greeting="Bienvenidos" />
+    </div>
+    </>
+  );
+}
 
-	export default App;
+export default App;
