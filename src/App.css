@@ -2,13 +2,12 @@
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	background-color: red;
+
 }
 
 .App ul li {
 	display: block;
 	display: inline-block;
-	color: #fff;
 	padding: 15px;
 	margin: 10px;
 	background-color: black;
