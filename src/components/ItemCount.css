@@ -1,0 +1,12 @@
+.contador{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: #E7E4E4;
+}
+
+div p{
+    color: black;
+    font-style: italic;
+    font-size: 15px;
+}

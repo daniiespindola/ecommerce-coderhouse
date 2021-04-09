@@ -1,5 +1,7 @@
 import {Button} from 'react-bootstrap'
 import {useState} from 'react'
+import './ItemCount.css'
+
 
 const ItemCount = ({initialCount, stock}) => {
 
@@ -20,11 +22,13 @@ const ItemCount = ({initialCount, stock}) => {
 
         return(
             <>
-                <div className="counter d-flex flex-wrap mx-auto">
+                <div className="counter d-flex flex-wrap mx-auto contador">
+                   
                     <div className="count">
                         <span>{count}</span>
+                        <p> contador </p>
                     </div>
-                    <div className="d-flex btn-counter">
+                    <div className="d-flex btn-counter ">
                         <Button variant='light' className='font-size-2' onClick={decrement}>-</Button>
                         <Button variant='light' className='font-size-2' onClick={increment}>+</Button>
                     </div>
