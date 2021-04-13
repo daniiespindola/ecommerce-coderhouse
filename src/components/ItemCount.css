@@ -1,12 +1,24 @@
-.contador{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    background-color: #E7E4E4;
-}
+.buttons .row {
+    display: inline-block; 
+    flex-direction: row;
+    margin-top: 10px;
+ }
 
-div p{
-    color: black;
-    font-style: italic;
-    font-size: 15px;
-}
+ .row {
+     margin-left: 2px;
+     background-color: white;
+     border-radius: 7px;
+     border-color: aqua;
+     width: 40px;
+     text-align: center;
+     font-family: Century Gothic, sans-serif;
+ }
+
+ .carrito {
+     margin-top: 10px;
+     font-family: Century Gothic, sans-serif;
+     border-radius: 7px;
+     border-color: aqua;
+     background-color: aqua;
+     border-radius: 7px;
+ }
