@@ -1,0 +1,11 @@
+.color{
+	color: black;
+	text-align: center;
+}
+
+#list {
+    display: flex;
+    justify-content:space-around;
+    align-items: flex-start;
+    flex-direction: row;
+    }

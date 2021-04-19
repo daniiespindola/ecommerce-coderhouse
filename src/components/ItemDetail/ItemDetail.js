@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
-import './Item.css'
-import ItemCount from './ItemCount'
+import './ItemDetail.css'
+import ItemCount from '../ItemCount/ItemCount.js'
 import clsx from 'clsx';
 import CardActions from '@material-ui/core/CardActions'
 import Collapse from '@material-ui/core/Collapse';
@@ -12,42 +12,43 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 
-
 const useStyles = makeStyles((theme) => ({
-    root: {
-      maxWidth: 345,
-      marginBlockEnd: 20,
-      marginInlineStart: 30,
-      marginRight: 30,
-      border: '1px solid',
-      padding: 10,
-      boxShadow: '4px 8px #000080'
+  root: {
+    maxWidth: 345,
+    marginBlockEnd: 20,
+    marginInlineStart: 30,
+    marginRight: 30,
+    border: '1px solid',
+    padding: 10,
+    boxShadow: '4px 8px #000080'
+  },
+  media: {
+    height: 300,
+    width: '20rem'
+  },
+  expand: {
+      transform: 'rotate(0deg)',
+      marginLeft: 'auto',
+      transition: theme.transitions.create('transform', {
+        duration: theme.transitions.duration.shortest,
+      }),
     },
-    media: {
-      height: 300,
-      width: '20rem'
+    expandOpen: {
+      transform: 'rotate(180deg)',
     },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-          duration: theme.transitions.duration.shortest,
-        }),
-      },
-      expandOpen: {
-        transform: 'rotate(180deg)',
-      },
-    }));
+  }));
 
-export const Item = ({ item }) => {
-    const classes = useStyles();
-    const [expanded, setExpanded] = React.useState(false);
-  
-    const handleExpandClick = () => {
-      setExpanded(!expanded);
-    };
+export default function ItemDetail({ item }) {
+  const classes = useStyles();
+  const [expanded, setExpanded] = React.useState(false);
 
-  return (
+  const handleExpandClick = () => {
+    setExpanded(!expanded);
+  };
+ 
+    return <>
+     {item
+     ? <>
     <Card className={classes.root}>
     <CardHeader 
     title={item.title}
@@ -74,7 +75,10 @@ export const Item = ({ item }) => {
       </Collapse>
      <ItemCount stock={item.stock} initial='1' />
     </Card>
-  );
-};
-
-export default Item;
+       </>
+     : null}
+            
+  </>;
+   
+  }
+  
