@@ -14,6 +14,10 @@ export function ItemCount({ stock, initial, onAdd }) {
     setCount(count - 1);
   };
 
+  const agregar = () => {
+    onAdd(count)
+  }
+
   return (
     <div>
       <div className="buttons">
@@ -37,7 +41,7 @@ export function ItemCount({ stock, initial, onAdd }) {
         className="carrito"
         disabled={count <= 0}
         type="button"
-        onClick={onAdd}
+        onClick={agregar}
       >
         Agregar al carrito
       </button>

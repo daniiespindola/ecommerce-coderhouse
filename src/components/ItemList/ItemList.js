@@ -8,6 +8,12 @@ const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
         padding: theme.spacing(2),
+    },
+      grid: {
+        display: 'flex',
+        justifyContent: 'space-around',
+        alignItems: 'flex-start',
+        flexDirection: 'row'
     }
 }))
 
@@ -20,12 +26,9 @@ export const ItemList = ({items=[]}) => {
         <Grid
             container
             spacing={6}
-            direction="row"
-            justify="flex-start"
-            justifycontent="center"
-            alignItems="flex-start"
+            className={classes.grid}
         >
-            {items.map(item => <Item item={item}/> )}
+            {items.map(item => <Item key={item.id} item={item}/> )}
         </Grid>
         </div>
     )

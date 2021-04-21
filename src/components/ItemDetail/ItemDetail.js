@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -11,6 +11,7 @@ import IconButton from '@material-ui/core/IconButton';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
+import { Link } from "react-router-dom"
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,11 +41,16 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ItemDetail({ item }) {
   const classes = useStyles();
-  const [expanded, setExpanded] = React.useState(false);
+  const [expanded, setExpanded] = useState(false);
+  const [count, setCount] = useState(0);
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+  const onAdd = (count) => {
+    setCount(count)
+  }
  
     return <>
      {item
@@ -72,8 +78,16 @@ export default function ItemDetail({ item }) {
           {item.description}
           </Typography>
         </CardContent>
-      </Collapse>
-     <ItemCount stock={item.stock} initial='1' />
+      </Collapse> 
+      { count === 0 ?
+          <ItemCount stock={item.stock} initial='1' onAdd={onAdd} />
+          :
+          <div>
+              <Link to="/cart">
+                  <button className="carrito" type="button"> Terminar mi compra </button>
+              </Link>
+          </div>
+        }
     </Card>
        </>
      : null}
