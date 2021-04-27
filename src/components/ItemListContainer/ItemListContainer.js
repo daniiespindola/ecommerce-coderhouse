@@ -23,14 +23,12 @@ export default function ItemListContainer() {
     promesa.then((resultado) => {
         setItems(resultado);
     });
-});
+}, [categoryId]);
 
-
-    const onAdd =() => {}
 
         return (
             <div>
-              <span style={{position: 'relative', top: '-20px'}}>Productos {categoryId}</span>
+              <span style={{position: 'relative', top: '-20px'}}>Items de la categoria {categoryId}</span>
               {items.length > 0 ? <ItemList items={items} /> : <h2>Cargando...</h2>}
             </div>
         );

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import './ItemCount.css'
 
 export function ItemCount({ stock, initial, onAdd }) {
   const [count, setCount] = useState(parseInt(initial));
 
-  const addHandle = () => {
+  const addHandler = () => {
     if(count < stock)
     setCount(count + 1);
   };
@@ -32,7 +32,7 @@ export function ItemCount({ stock, initial, onAdd }) {
         <button
           className="row"
           type="button"
-          onClick={addHandle}
+          onClick={addHandler}
         >
           +
         </button>
