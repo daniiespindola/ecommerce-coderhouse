@@ -9,12 +9,13 @@ const useStyles = makeStyles(theme => ({
         flexGrow: 1,
         padding: theme.spacing(2),
     },
-      grid: {
+    grid: {
         display: 'flex',
         justifyContent: 'space-around',
         alignItems: 'flex-start',
         flexDirection: 'row'
     }
+
 }))
 
 

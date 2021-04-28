@@ -5,6 +5,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import ItemListContainer from './components/ItemListContainer/ItemListContainer.js'
 import { BrowserRouter, Switch, Route  } from 'react-router-dom'
 import { CartProvider } from "./context/CartContext";
+import { Cart } from "./components/Cart/Cart.js"
 
 
 function App() {
@@ -23,8 +24,9 @@ function App() {
         <Route path='/item/:itemId'>
           <ItemDetailContainer showMsg={true} />  
         </Route>
-        <Route path='*'>
-          404
+        <Route path="/cart">
+           <h2>Estoy en el Cart</h2>
+           <Cart />
         </Route>
       </Switch>
     </div> 
