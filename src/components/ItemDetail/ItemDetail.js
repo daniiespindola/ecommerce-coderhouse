@@ -1,106 +1,70 @@
-import React, { useState, useContext } from 'react'
-import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import './ItemDetail.css'
-import ItemCount from '../ItemCount/ItemCount.js'
-import clsx from 'clsx';
-import CardActions from '@material-ui/core/CardActions'
-import Collapse from '@material-ui/core/Collapse';
-import IconButton from '@material-ui/core/IconButton';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import Typography from '@material-ui/core/Typography';
-import CardContent from '@material-ui/core/CardContent';
-import { Link } from "react-router-dom";
-import { CartContext } from "../../context/CartContext";
+import React from "react";
+import ItemCount from "../ItemCount/ItemCount"
+import "./ItemDetail.css"
+import {useEffect, useState} from "react"
+import {useParams} from "react-router-dom"
+import {useCartContext} from "../CartContext/CartContext"
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    maxWidth: 345,
-    marginBlockEnd: 20,
-    marginInlineStart: 30,
-    marginRight: 30,
-    border: '1px solid',
-    padding: 10,
-    boxShadow: '4px 8px #000080'
-  },
-  media: {
-    height: 300,
-    width: '20rem'
-  },
-  expand: {
-      transform: 'rotate(0deg)',
-      marginLeft: 'auto',
-      transition: theme.transitions.create('transform', {
-        duration: theme.transitions.duration.shortest,
-      }),
-    },
-    expandOpen: {
-      transform: 'rotate(180deg)',
-    },
-  }));
 
-export default function ItemDetail({ item }) {
-  const classes = useStyles();
-  const [expanded, setExpanded] = useState(false);
-  const [count, setCount] = useState(0)
+const ItemDetail = ({items}) => {  
+    const [product,setProduct]= useState({})
+    const {addCarrito, clear, removeCarrito,carrito}=useCartContext();
+    const {id}=useParams()
+    
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+    useEffect(()=>{
+        const call = new Promise((resolve,reject) =>{
+            setTimeout(()=>{
+                resolve(items[id])
+            },20)
+    
+        })
+        call.then(response => {
+            setProduct(response)
+        })
+    },[])
+    const [count, setCount]= useState(1)
+    const [cantidad, setCantidad]= useState()
+    const [mostrar,setMostrar]=useState(false);
+    function onAdd(){
+        if(count<product.stock)
+        setCount(count+1);
 
-  const agregar = (num) => {
-    alert(`Se Agrego un Item. Cantidad: ${num}`)
-    setCount(num)
-}
+        else
+        console.log("No se puede agregar mas stock");
+    }
 
-  const {addItem} = useContext(CartContext);
+    function onSubtract(){       
 
-  const terminarCompra = () =>{
-      addItem(item, count)
-  }
- 
-    return <>
-     {item
-     ? <>
-    <Card className={classes.root}>
-    <CardHeader 
-    title={item.title}
-    subheader={`$${item.price}`}/>
-     <img src={item.pictureUrl} alt="" className={classes.media} />
-     <CardActions disableSpacing>
-        <IconButton
-          className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded,
-          })}
-          onClick={handleExpandClick}
-          aria-expanded={expanded}
-          aria-label="show more"
-        >
-          <ExpandMoreIcon />
-        </IconButton>
-      </CardActions>
-      <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Typography paragraph>
-          {item.description}
-          </Typography>
-        </CardContent>
-      </Collapse> 
-      { count === 0 ?
-          <ItemCount stock={item.stock} initial='1' onAdd={agregar} />
-          :
-          <div>
-              <Link to="/cart">
-                  <button className="carrito" type="button" onClick={terminarCompra}> Terminar mi compra </button>
-              </Link>
-          </div>
+        if(count>0)
+        setCount(count-1);
+
+        else
+        console.log("No se puede Quitar mas stock");
+    }
+    function  addToCart() {
+    //    setCantidad(count);
+    //  setMostrar(true);      
+        addCarrito(product,count)
+        
+        console.log(carrito);
         }
-    </Card>
-       </>
-     : null}
-            
-  </>;
-   
-  }
-  
+
+    return(    
+             
+             
+               (typeof(product.title)!=="undefined") && <div className="sarasa d-flex  flex-row flex-wrap" key={product.id} >
+                    <h3 className="col-12 my-5">{product.title}</h3>                                   
+                    <img className="col-6" src={product.pictureUrl}/>                    
+                    <div className="col-6 d-flex flex-row flex-wrap align-items-center justify-content-center"> 
+                        <p className="mt-5 col-12">{product.description} </p>
+                        <h4 className="col-12">Precio: ${product.price}</h4>    
+                        <ItemCount {...{onAdd,onSubtract,addToCart,count,mostrar,setMostrar}} className="col-12" stock={product.stock} />
+                    </div> 
+                  
+                </div>
+             
+        
+    )
+}
+export default ItemDetail;

@@ -1,0 +1,17 @@
+div{
+    color:red;
+}
+
+.itemCard{
+    border: 3px solid white;
+    text-decoration: none;
+    background-color: rgba(97, 94, 94, 0.733);
+    
+}
+.itemListContainer{
+    margin-left: auto;
+    
+}
+.itemListPanelBar{
+   height: 100%;
+}

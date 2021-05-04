@@ -1,38 +1,30 @@
-import React from 'react'
-import Item from '../Item/Item.js'
-import { makeStyles } from '@material-ui/core/styles'
-import { Grid } from '@material-ui/core/'
-
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-        padding: theme.spacing(2),
-    },
-    grid: {
-        display: 'flex',
-        justifyContent: 'space-around',
-        alignItems: 'flex-start',
-        flexDirection: 'row'
-    }
-
-}))
-
-
-export const ItemList = ({items=[]}) => {
-    const classes = useStyles()
-
-    return (
-        <div className={classes.root}>
-        <Grid
-            container
-            spacing={6}
-            className={classes.grid}
-        >
-            {items.map(item => <Item key={item.id} item={item}/> )}
-        </Grid>
+import React from "react";
+import "./ItemList.css"
+import ItemCount from "../ItemCount/ItemCount"
+import {Link} from "react-router-dom"
+const ItemList = ({items}) => {  
+   console.log(items);
+    return(
+        <div className="itemListContainer col-10 d-flex flex-wrap">
+            
+             
+                
+                    {items && items.map(item => 
+                     
+                     <Link className="col-3 m-3 p-3 itemCard d-flex" to={`item/${item.id}`} key={item.id} >
+                        <div className="d-flex row justify-content-center" >                        
+                            <h3 >{item.title}</h3>
+                            <h3>${item.price}</h3>
+                            <div>
+                            <img className="col-6 my-3"src={item.pictureUrl} />
+                        </div>
+                         </div>
+                    </Link>
+                    )}
+                
+             
+             
         </div>
     )
 }
-
 export default ItemList;
