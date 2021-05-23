@@ -4,7 +4,7 @@ rojo oscuro=57060c
 */
 .containerNavBar{
     background-color: black;
-   /* background-image: url(../../images.jpg);*/
+   background-image: url(../../images.jpg);
     display: flex;
     background-repeat: no-repeat;
     background-position:center;

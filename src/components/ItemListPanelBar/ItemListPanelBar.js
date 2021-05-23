@@ -13,7 +13,7 @@ const ItemListPanelBar=({items,setItems})=>{
             <div>
                 <h2>Filtrar Por Producto</h2>
                 <FilterButton nombreDelBoton="Filtrar Polaroid" setItems={setItems} items={items} campo="categoryId" condicion="==" valor="B1FP6SIMrJILT77WxIb8" />
-                <FilterButton nombreDelBoton="Filtrar Personalizadas" setItems={setItems} items={items} campo="categoryId" condicion="==" valor="zHOzTf0dX5AZhQYdVmtN" />             
+                <FilterButton nombreDelBoton="Filtrar Accesorios" setItems={setItems} items={items} campo="categoryId" condicion="==" valor="zHOzTf0dX5AZhQYdVmtN" />             
             
             </div>
 
