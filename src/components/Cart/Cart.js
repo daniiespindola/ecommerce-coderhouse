@@ -126,10 +126,10 @@ const Cart =()=>{
                         <h1>TOTAL: ${totalCompra} </h1>
                         <div>                        
                             <form onSubmit={handleCompra}>
-                                <input onChange={(e)=>buyerOnChange(e,"nombre")} type="text" className="form-control" placeholder="First name" aria-label="First name" />                            
+                                <input onChange={(e)=>buyerOnChange(e,"nombre")} type="text" className="form-control" placeholder="Nombre" aria-label="First name" />                            
                                 <input onChange={(e)=>buyerOnChange(e,"telefono")} type="tel" placeholder="Telefono" arial-label="Telefono" />
                                 <input onChange={(e)=>buyerOnChange(e,"email")} type="email" placeholder="Email" arial-label="Tu email"/>
-                                <input onChange={(e)=>buyerOnChange(e,"reEmail")} type="email" placeholder="Confirmar Email" arial-label="Comfirmar email"/>
+                                <input onChange={(e)=>buyerOnChange(e,"reEmail")} type="email" placeholder="Confirmar Email" arial-label="Confirmar email"/>
                                 <input type="submit" disabled={buttonOff} value="Finalizar compra"/>
                             </form>                        
                         </div>                   

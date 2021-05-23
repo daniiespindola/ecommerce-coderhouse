@@ -25,8 +25,8 @@ const FilterButton=({items,setItems,campo,condicion,valor,nombreDelBoton})=>{
         }
         else{
             let itemsFirebase=db.collection("items");
-            const polaroid=itemsFirebase.where(campo,condicion,valor)
-            polaroid.get().then((querySnapshot)=>{
+            const ropa=itemsFirebase.where(campo,condicion,valor)
+            ropa.get().then((querySnapshot)=>{
     
             if(querySnapshot.size===0){
                 console.log("Sin resultados");

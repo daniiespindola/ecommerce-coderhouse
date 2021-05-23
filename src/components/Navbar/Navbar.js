@@ -5,17 +5,15 @@ import {Link} from "react-router-dom"
 const NavBar = () => {
 
     return(
-        <div className="containerNavBar pt-3">
-            <div className="containerMenu">
-                <a className="containerMenu__link animated-button victoria-two px-3 " href="/">Home</a>
-                <a className="containerMenu__link animated-button victoria-two px-3" href="#">Catalogo</a>
-                <a className="containerMenu__link animated-button victoria-two px-3" href="#">Contacto</a>
+        <div className="containerNavBar ">
+            <div className="containerMenu pt-3 pb-3">
+                <Link to='/' className="containerMenu__link animated-button victoria-two px-3">Inicio</Link>
                 <CartWidget/>
             </div>  
             <Link to='/'>
                 <div className="containerBrand pt-5">
                 
-                    <h1 className="tituloColor">Pauladesing</h1>
+                    <h1>PaulaDesing</h1>
 
                 </div>   
             </Link> 

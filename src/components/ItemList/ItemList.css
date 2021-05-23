@@ -1,9 +1,8 @@
 div{
-    color:red;
+    color:white;
 }
 
 .itemCard{
-    border: 3px solid white;
     text-decoration: none;
     background-color: rgba(97, 94, 94, 0.733);
     
@@ -14,4 +13,11 @@ div{
 }
 .itemListPanelBar{
    height: 100%;
-}
+ }
+
+ .estilo-list{
+background-color: #444343;
+margin-top: 5px;
+margin-bottom: 3px;
+padding-bottom: 3px;
+ }

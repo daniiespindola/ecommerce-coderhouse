@@ -12,7 +12,7 @@ const ItemList = ({items,setItems}) => {
                     {items && items.map(item => 
                      
                      <Link className="col-3 m-3 p-3 itemCard d-flex" to={`item/${item.id}`} key={item.id} >
-                        <div className="d-flex row justify-content-center" >                        
+                        <div className="d-flex row justify-content-center estilo-list" >                        
                             <h1 >{item.title}</h1>
                             <h1>${item.price}</h1>
                             <img className="my-3" src={item.pictureUrl} />

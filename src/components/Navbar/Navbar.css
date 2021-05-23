@@ -3,17 +3,14 @@
 rojo oscuro=57060c
 */
 .containerNavBar{
-    background-color: #c3e5e9;
-   /*background-image: url(../../images.jpg);*/
+    background-color: black;
+   /* background-image: url(../../images.jpg);*/
     display: flex;
     background-repeat: no-repeat;
     background-position:center;
     flex-direction: column;
     width: 100%;
     height: 25em;
-}
-.tituloColor{
-	color: black;
 }
 .containerMenu{    
     display:flex;
@@ -23,14 +20,14 @@ rojo oscuro=57060c
 }
 .containerMenu__link{
     text-decoration: none;  
-    color: black;
+    color: white;
     font-family: 'East Sea Dokdo', cursive;
     font-size: 2em;  
     
 }
 .containerMenu__link:hover{
     background-color: rgba(207, 7, 7, 0.87);
-    color: black;
+    color: white;
 }
 .containerBrand{
     
@@ -41,9 +38,9 @@ rojo oscuro=57060c
     align-items: center;
 }
 .containerBrand h1{
-    color: #da0303;
+    color: white;
     font-family: 'East Sea Dokdo', cursive;
-    font-size: 48px;
+    font-size: 5em;
 }
 
 a.animated-button:link, a.animated-button:visited {
@@ -105,7 +102,6 @@ a.animated-button:link, a.animated-button:visited {
 }
 a.animated-button.victoria-two {
 	border: 2px solid #D24D57;
-	color:#da0303;
 }
 a.animated-button.victoria-two:after {
 	background: #D24D57;
