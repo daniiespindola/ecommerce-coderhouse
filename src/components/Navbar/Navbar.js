@@ -1,8 +1,8 @@
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
-import "./NavBar.css"
+import "./Navbar.css"
 import {Link} from "react-router-dom"
-const NavBar = () => {
+const Navbar = () => {
 
     return(
         <div className="containerNavBar ">
@@ -15,10 +15,10 @@ const NavBar = () => {
                 
                     <h1>PaulaDesing</h1>
 
-                </div>   
+                 </div>   
             </Link> 
         </div>   
     )
 }
 
-export default NavBar;
+export default Navbar;
